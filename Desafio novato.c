@@ -1,5 +1,5 @@
 // Luiz Fellipe Rodrigues da Silva
-// Desafio Batalha Naval - Nivel Novato
+// Desafio Batalha Naval - Nivel Aventureiro
 
 #include <stdio.h>
 
@@ -24,27 +24,42 @@ int main() {
     }
 
     // ----------------------------------------------------
-    // 2. Colocando os navios (tamanho 3, valor 3)
+    // 2. Colocando os 4 navios (tamanho 3, valor 3)
     // ----------------------------------------------------
     
     // Navio 1 (Horizontal)
-    // Vamos colocar na linha 2, comecando na coluna 2
-    // Ele vai ficar em [2][2], [2][3], [2][4]
+    // Na linha 1, colunas 1, 2, 3
     for (i = 0; i < 3; i++) {
-        tabuleiro[2][2 + i] = 3; // 3 significa 'navio'
+        tabuleiro[1][1 + i] = 3; // 3 significa 'navio'
     }
 
     // Navio 2 (Vertical)
-    // Vamos colocar na coluna 5, comecando na linha 5
-    // Ele vai ficar em [5][5], [6][5], [7][5]
+    // Na coluna 6, linhas 3, 4, 5
     for (i = 0; i < 3; i++) {
-        tabuleiro[5 + i][5] = 3; // 3 significa 'navio'
+        tabuleiro[3 + i][6] = 3; // 3 significa 'navio'
     }
+
+    // --- NOVO NÍVEL AVENTUREIRO ---
+
+    // Navio 3 (Diagonal principal '\')
+    // Comecando em [5][0], vai para [6][1], [7][2]
+    for (i = 0; i < 3; i++) {
+        // A linha e a coluna aumentam juntas
+        tabuleiro[5 + i][0 + i] = 3; 
+    }
+
+    // Navio 4 (Diagonal secundaria '/')
+    // Comecando em [0][9], vai para [1][8], [2][7]
+    for (i = 0; i < 3; i++) {
+        // A linha aumenta, mas a coluna diminui
+        tabuleiro[0 + i][9 - i] = 3;
+    }
+
 
     // ----------------------------------------------------
     // 3. Imprimindo o tabuleiro na tela
     // ----------------------------------------------------
-    printf("--- Tabuleiro Batalha Naval ---\n");
+    printf("--- Tabuleiro Batalha Naval (Nivel Aventureiro) ---\n");
     
     for (i = 0; i < 10; i++) {
         for (j = 0; j < 10; j++) {
